@@ -12,10 +12,13 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-            .csrf(csrf -> csrf.disable()) // disable CSRF
+            // disable CSRF (important for APIs)
+            .csrf(csrf -> csrf.disable())
+
+            // allow requests
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**").permitAll() // allow login
-                .anyRequest().authenticated() // protect others
+                .requestMatchers("/auth/**", "/transactions/**", "/alerts/**").permitAll()
+                .anyRequest().authenticated()
             );
 
         return http.build();
