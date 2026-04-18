@@ -1,4 +1,4 @@
-package main.java.com.financial.crime.detection;
+package com.financial.crime.detection.controller;
 
 import org.springframework.web.bind.annotation.*;
 

@@ -1,9 +1,17 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8080"
+  baseURL: "http://localhost:8080",
 });
 
-export const sendTransaction = (data) => {
-  return API.post("/transactions", data);
-};
+// CREATE transaction
+export const createTransaction = (data) =>
+  API.post("/transactions", data);
+
+// GET all transactions
+export const getTransactions = () =>
+  API.get("/transactions");
+
+// GET all alerts
+export const getAlerts = () =>
+  API.get("/alerts");
