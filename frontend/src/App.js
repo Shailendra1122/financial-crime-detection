@@ -1,26 +1,17 @@
-import { sendTransaction } from "./services/api";
+import React from "react";
+import TransactionForm from "./components/TransactionForm";
+import Dashboard from "./components/Dashboard";
 
 function App() {
-
-  const handleClick = async () => {
-    const data = {
-      amount: 1000,
-      type: "credit"
-    };
-
-    try {
-      const res = await sendTransaction(data);
-      console.log(res.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   return (
-    <div>
-      <button onClick={handleClick}>
-        Send Transaction
-      </button>
+    <div style={{ padding: "20px", fontFamily: "Arial" }}>
+      <h1>🚨 Financial Crime Detection System</h1>
+
+      {/* Transaction Input Form */}
+      <TransactionForm />
+
+      {/* Dashboard Section */}
+      <Dashboard />
     </div>
   );
 }
