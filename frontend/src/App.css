@@ -1,0 +1,38 @@
+/* Center everything */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+/* Container */
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Button styling */
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Click effect */
+button:active {
+  transform: scale(0.98);
+}
