@@ -17,7 +17,17 @@ public class Transaction {
     private String location;
     private LocalDateTime timestamp;
 
-    private String status; // NORMAL / FRAUD
+    private String status; // NORMAL / SUSPICIOUS / FRAUD
 
-    // Getters and Setters
+    private String type; // TRANSFER, WITHDRAWAL, DEPOSIT, PAYMENT
+    private String recipientAccount;
+    private String description;
+    private Double riskScore; // 0.0 - 1.0
+
+    @PrePersist
+    protected void onCreate() {
+        if (timestamp == null) {
+            timestamp = LocalDateTime.now();
+        }
+    }
 }

@@ -1,18 +1,77 @@
 import React from "react";
-import TransactionForm from "./components/TransactionForm";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Dashboard from "./components/Dashboard";
+import "./App.css";
+
+function ProtectedRoute({ children }) {
+  const { isAuthenticated, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
+
+  return isAuthenticated ? children : <Navigate to="/login" />;
+}
+
+function PublicRoute({ children }) {
+  const { isAuthenticated, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
+
+  return !isAuthenticated ? children : <Navigate to="/" />;
+}
 
 function App() {
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial" }}>
-      <h1>🚨 Financial Crime Detection System</h1>
-
-      {/* Transaction Input Form */}
-      <TransactionForm />
-
-      {/* Dashboard Section */}
-      <Dashboard />
-    </div>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
