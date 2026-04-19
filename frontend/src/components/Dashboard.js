@@ -88,16 +88,7 @@ function Dashboard() {
       {/* Sidebar */}
       <aside className="sidebar">
         <div className="sidebar-logo">
-          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
-            <rect width="40" height="40" rx="10" fill="url(#sgrad)" />
-            <path d="M12 28V18l8-6 8 6v10H22v-6h-4v6H12z" fill="#fff" />
-            <defs>
-              <linearGradient id="sgrad" x1="0" y1="0" x2="40" y2="40">
-                <stop stopColor="#6366f1" />
-                <stop offset="1" stopColor="#8b5cf6" />
-              </linearGradient>
-            </defs>
-          </svg>
+
           <span>FCD System</span>
         </div>
 

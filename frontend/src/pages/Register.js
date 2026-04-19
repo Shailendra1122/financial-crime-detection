@@ -41,24 +41,11 @@ function Register() {
 
   return (
     <div className="auth-page">
-      <div className="auth-bg-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
-      </div>
+
       <div className="auth-card">
         <div className="auth-header">
           <div className="auth-logo">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <rect width="40" height="40" rx="10" fill="url(#grad2)" />
-              <path d="M12 28V18l8-6 8 6v10H22v-6h-4v6H12z" fill="#fff" />
-              <defs>
-                <linearGradient id="grad2" x1="0" y1="0" x2="40" y2="40">
-                  <stop stopColor="#6366f1" />
-                  <stop offset="1" stopColor="#8b5cf6" />
-                </linearGradient>
-              </defs>
-            </svg>
+            <h2>FCD</h2>
           </div>
           <h1>Create Account</h1>
           <p className="auth-subtitle">
@@ -75,7 +62,7 @@ function Register() {
               id="reg-fullname"
               type="text"
               name="fullName"
-              placeholder="John Doe"
+              placeholder="Enter your full name"
               value={form.fullName}
               onChange={handleChange}
               required
@@ -87,7 +74,7 @@ function Register() {
               id="reg-email"
               type="email"
               name="email"
-              placeholder="john@example.com"
+              placeholder="Enter your email"
               value={form.email}
               onChange={handleChange}
               required
